@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cbb3c83d-562f-44db-88bd-db05173b135b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/hellojpa/JpaMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hellojpa/Member.java" afterDir="false" />
+    <list default="true" id="cbb3c83d-562f-44db-88bd-db05173b135b" name="Changes" comment="회원 등록&#10;• 회원 수정&#10;• 회원 삭제&#10;• 회원 단 건 조회&#10;• JPQL로 전체 회원 검색">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hellojpa/JpaMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hellojpa/JpaMain.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +46,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/study/ex1-hello-jpa",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -81,11 +85,40 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1690374887119</updated>
-      <workItem from="1690374888839" duration="1908000" />
+      <workItem from="1690374888839" duration="3558000" />
+      <workItem from="1690463107854" duration="100000" />
+      <workItem from="1690463355352" duration="231000" />
     </task>
+    <task id="LOCAL-00001" summary="기본 세팅 및 jpa EntityManagerFactory, EntityManager, EntityTransaction 사용 객체 persist">
+      <created>1690376908973</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1690376908973</updated>
+    </task>
+    <task id="LOCAL-00002" summary="기본 세팅 및 jpa EntityManagerFactory, EntityManager, EntityTransaction 사용 객체 persist">
+      <created>1690377051914</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1690377051914</updated>
+    </task>
+    <task id="LOCAL-00003" summary="회원 등록&#10;• 회원 수정&#10;• 회원 삭제&#10;• 회원 단 건 조회&#10;• JPQL로 전체 회원 검색">
+      <created>1690378339595</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1690378339595</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="기본 세팅 및 jpa EntityManagerFactory, EntityManager, EntityTransaction 사용 객체 persist" />
+    <MESSAGE value="회원 등록&#10;• 회원 수정&#10;• 회원 삭제&#10;• 회원 단 건 조회&#10;• JPQL로 전체 회원 검색" />
+    <option name="LAST_COMMIT_MESSAGE" value="회원 등록&#10;• 회원 수정&#10;• 회원 삭제&#10;• 회원 단 건 조회&#10;• JPQL로 전체 회원 검색" />
   </component>
 </project>

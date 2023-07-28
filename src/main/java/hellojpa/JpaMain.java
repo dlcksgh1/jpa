@@ -26,7 +26,7 @@ public class JpaMain {
             em.persist(member);
             */
 
-            /*      
+            /*
             조회
             Member findMember = em.find(Member.class, 1L);
             System.out.println("findMember.id" + findMember.getId());
@@ -42,14 +42,14 @@ public class JpaMain {
             */
 
             // JPQL
-            List<Member> resultList = em.createQuery("select m from Member as m", Member.class)
+/*            List<Member> resultList = em.createQuery("select m from Member as m", Member.class)
                     .setFirstResult(1)
                     .setMaxResults(10)
                     .getResultList();
 
             for (Member member : resultList) {
-                System.out.println("member.Name = " + member.getName());
-            }
+                System.out.println("member.Name = " + member.getUsername());
+            }*/
 
             tx.commit();
         }catch (Exception e){
