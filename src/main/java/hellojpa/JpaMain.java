@@ -17,6 +17,52 @@ public class JpaMain {
         tx.begin();
 
         try{
+
+            // 양방향 연관관계에서 가장많이 하는 실수
+            /*
+            Member member = new Member();
+            member.setName("member1");
+            em.persist(member);
+
+            Team team = new Team();
+            team.setName("TeamA");
+            team.getMembers().add(member);
+            em.persist(team);
+            */
+
+            //저장
+
+            Team team = new Team();
+            team.setName("TeamA");
+            em.persist(team);
+
+            Member member = new Member();
+            member.setUsername("member1");
+            member.changeTeam(team); // 연관관계 편의 메소드
+            em.persist(member);
+
+            //team.getMembers().add(member); // changeTeam() 에 연관관계 편의 메소드를 생성
+
+
+
+            em.flush(); // 영속성 컨텍스트에 이미 들어가있어 1차캐쉬에서 조회하기 때문에 조회쿼리가 안나감
+            em.clear(); // 조회쿼리가 보고싶으면 flush ,clear 하고 조회
+
+            //조회
+            /*
+            Member findMember = em.find(Member.class, member.getId());
+            List<Member> members = findMember.getTeam().getMembers();
+
+            for (Member m : members) {
+                System.out.println("m = " + m.getName());
+            }*/
+
+            //수정
+            /*
+            Team newTeam = em.find(Team.class, 100L);
+            findMember.setTeam(newTeam);
+            */
+
             /*      
             생성
             Member member = new Member();
