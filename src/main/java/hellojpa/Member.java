@@ -3,7 +3,9 @@ package hellojpa;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @SequenceGenerator(
@@ -30,6 +32,14 @@ public class Member {
     @ManyToOne
     @JoinColumn(name = "TEAM_ID" ,insertable=false, updatable=false)
     private Team team;
+
+    @OneToOne
+    @JoinColumn(name = "LOCKER_ID")
+    private Locker locker;
+
+    @ManyToMany
+    @JoinTable(name = "MEMBER_PRODUCT")
+    private List<Product>products = new ArrayList<>();
 
     private Integer age;
 
@@ -112,5 +122,30 @@ public class Member {
     public void changeTeam(Team team) {
         this.team = team;
         team.getMembers().add(this);
+    }
+
+
+    public Locker getLocker() {
+        return locker;
+    }
+
+    public void setLocker(Locker locker) {
+        this.locker = locker;
+    }
+
+    public LocalDate getTestLocalDate() {
+        return testLocalDate;
+    }
+
+    public void setTestLocalDate(LocalDate testLocalDate) {
+        this.testLocalDate = testLocalDate;
+    }
+
+    public LocalDateTime getTestLocalDateTime() {
+        return testLocalDateTime;
+    }
+
+    public void setTestLocalDateTime(LocalDateTime testLocalDateTime) {
+        this.testLocalDateTime = testLocalDateTime;
     }
 }
