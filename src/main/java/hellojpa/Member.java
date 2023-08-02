@@ -12,7 +12,7 @@ import java.util.List;
         name = "MEMBER_SEQ_GENERATOR",
         sequenceName = "MEMBER_SEQ",  //매핑할 데이터베이스 시퀀스 이름
         initialValue = 1, allocationSize = 50)
-public class Member {
+public class Member extends BaseEntity{
 
 /*
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
@@ -44,16 +44,6 @@ public class Member {
 
     @Enumerated(EnumType.STRING)
     private RoleType roleType;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdDate;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date lastModifiedDate;
-
-    private LocalDate testLocalDate;
-
-    private LocalDateTime testLocalDateTime;
 
     @Lob
     private String description;
@@ -90,22 +80,6 @@ public class Member {
         this.roleType = roleType;
     }
 
-    public Date getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
-    }
-
-    public Date getLastModifiedDate() {
-        return lastModifiedDate;
-    }
-
-    public void setLastModifiedDate(Date lastModifiedDate) {
-        this.lastModifiedDate = lastModifiedDate;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -132,19 +106,4 @@ public class Member {
         this.locker = locker;
     }
 
-    public LocalDate getTestLocalDate() {
-        return testLocalDate;
-    }
-
-    public void setTestLocalDate(LocalDate testLocalDate) {
-        this.testLocalDate = testLocalDate;
-    }
-
-    public LocalDateTime getTestLocalDateTime() {
-        return testLocalDateTime;
-    }
-
-    public void setTestLocalDateTime(LocalDateTime testLocalDateTime) {
-        this.testLocalDateTime = testLocalDateTime;
-    }
 }
