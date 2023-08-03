@@ -30,10 +30,10 @@ public class Member extends BaseEntity{
     private String username;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "TEAM_ID" ,insertable=false, updatable=false)
+    @JoinColumn(name = "TEAM_ID")
     private Team team;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "LOCKER_ID")
     private Locker locker;
 
@@ -97,6 +97,9 @@ public class Member extends BaseEntity{
         team.getMembers().add(this);
     }
 
+    public void setTeam(Team team) {
+        this.team = team;
+    }
 
     public Locker getLocker() {
         return locker;
