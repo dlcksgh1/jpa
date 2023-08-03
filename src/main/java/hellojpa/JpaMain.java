@@ -41,6 +41,14 @@ public class JpaMain {
             member.changeTeam(team); // 연관관계 편의 메소드
             em.persist(member);
 
+            Member m1 = em.getReference(Member.class, member.getId());
+            Member m2 = em.getReference(Member.class, member.getId());
+            Member m3 = em.find(Member.class, member.getId());
+
+            System.out.println("m1 ==  m2" + (m1.getClass() == m2.getClass())); //true
+            System.out.println("m1 ==  m3" + (m1.getClass() == m3.getClass())); // false Instance of 로 비교해라
+
+            System.out.println("a == a" + (m1 == m3)); //true
             //team.getMembers().add(member); // changeTeam() 에 연관관계 편의 메소드를 생성
 
 
