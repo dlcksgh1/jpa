@@ -17,29 +17,22 @@ public class JpaMain {
         tx.begin();
 
         try{
+            Child child1 = new Child();
+            Child child2 = new Child();
 
-            Team team = new Team();
-            team.setName("teamA");
-            em.persist(team);
+            Parent parent = new Parent();
+            parent.addChild(child1);
+            parent.addChild(child2);
 
-            Member member1 = new Member();
-            member1.setUsername("member1");
-            member1.setTeam(team);
-            em.persist(member1);
+            em.persist(parent);
+            // em.persist(child1); 생략 가능
+            // em.persist(child2);
+            em.flush();
+            em.clear();
 
-            em.flush(); // 영속성 컨텍스트에 이미 들어가있어 1차캐쉬에서 조회하기 때문에 조회쿼리가 안나감
-            em.clear(); // 조회쿼리가 보고싶으면 flush ,clear 하고 조회
+            Parent findParent = em.find(Parent.class, parent.getId());
+            findParent.getChildList().remove(0);
 
-/*            Member m = em.find(Member.class, member1.getId());
-
-            System.out.println("m = " + m.getTeam().getClass());
-            System.out.println("==============================");
-            m.getTeam().getName();
-            System.out.println("==============================");
-            */
-
-            List<Member> members = em.createQuery("select m from Member m join fetch m.team", Member.class)
-                    .getResultList();
 
 
             tx.commit();
