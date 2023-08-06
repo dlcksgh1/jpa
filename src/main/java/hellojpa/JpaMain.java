@@ -17,23 +17,13 @@ public class JpaMain {
         tx.begin();
 
         try{
-            Child child1 = new Child();
-            Child child2 = new Child();
 
-            Parent parent = new Parent();
-            parent.addChild(child1);
-            parent.addChild(child2);
+            Member member = new Member();
+            member.setUsername("hello");
+            member.setHomeAddress(new Address("city", "zipcode", "street"));
+            member.setWorkPeriod(new Period());
 
-            em.persist(parent);
-            // em.persist(child1); 생략 가능
-            // em.persist(child2);
-            em.flush();
-            em.clear();
-
-            Parent findParent = em.find(Parent.class, parent.getId());
-            findParent.getChildList().remove(0);
-
-
+            em.persist(member);
 
             tx.commit();
 

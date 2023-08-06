@@ -14,13 +14,6 @@ import java.util.List;
         initialValue = 1, allocationSize = 50)
 public class Member extends BaseEntity{
 
-/*
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;*/
-
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE,
             generator = "MEMBER_SEQ_GENERATOR")
     @Column(name = "MEMBER_ID")
@@ -47,6 +40,23 @@ public class Member extends BaseEntity{
 
     @Lob
     private String description;
+
+    @Embedded
+    private Period workPeriod;
+
+    @Embedded
+    private Address HomeAddress;
+
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name="city",
+                column=@Column(name = "WORK_CITY")),
+            @AttributeOverride(name="street",
+                    column=@Column(name = "WORK_STREET")),
+            @AttributeOverride(name="zipcode",
+                    column=@Column(name = "WORK_ZIPCODE"))
+    })
+    private Address workAddress;
 
     public Long getId() {
         return id;
@@ -109,4 +119,19 @@ public class Member extends BaseEntity{
         this.locker = locker;
     }
 
+    public Period getWorkPeriod() {
+        return workPeriod;
+    }
+
+    public void setWorkPeriod(Period workPeriod) {
+        this.workPeriod = workPeriod;
+    }
+
+    public Address getHomeAddress() {
+        return HomeAddress;
+    }
+
+    public void setHomeAddress(Address homeAddress) {
+        HomeAddress = homeAddress;
+    }
 }
