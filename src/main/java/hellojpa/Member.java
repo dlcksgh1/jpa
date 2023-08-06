@@ -3,9 +3,7 @@ package hellojpa;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @SequenceGenerator(
@@ -57,6 +55,15 @@ public class Member extends BaseEntity{
                     column=@Column(name = "WORK_ZIPCODE"))
     })
     private Address workAddress;
+
+//    @Column(name="FOOD_NAME")
+//    private Set<String> favoriteFoods = new HashSet<>();
+//
+//    @ElementCollection
+//    @CollectionTable(name="Address", joinColumns =
+//        @JoinColumn(name="MEMBER_ID")
+//    )
+//    private List<Address> addressHistory = new ArrayList<>();
 
     public Long getId() {
         return id;
