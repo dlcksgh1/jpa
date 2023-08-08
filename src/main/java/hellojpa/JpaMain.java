@@ -1,9 +1,6 @@
 package hellojpa;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 import java.util.List;
 
 public class JpaMain {
@@ -20,11 +17,12 @@ public class JpaMain {
 
             Member member = new Member();
             member.setUsername("hello");
-            member.setHomeAddress(new Address("city", "zipcode", "street"));
-            member.setWorkPeriod(new Period());
-
+            member.setAge(10);
             em.persist(member);
 
+            TypedQuery<Member> query1 = em.createQuery("SELECT m FROM Member m", Member.class);
+            TypedQuery<String> query2 = em.createQuery("select m.username from Member m", String.class);
+            Query query = em.createQuery("select m.username, m.age from Member m");
             tx.commit();
 
 
