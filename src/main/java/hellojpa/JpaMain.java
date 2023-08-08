@@ -22,7 +22,18 @@ public class JpaMain {
 
             TypedQuery<Member> query1 = em.createQuery("SELECT m FROM Member m", Member.class);
             TypedQuery<String> query2 = em.createQuery("select m.username from Member m", String.class);
-            Query query = em.createQuery("select m.username, m.age from Member m");
+            Query query3 = em.createQuery("select m.username, m.age from Member m");
+
+            List<Member> resultList = query1.getResultList();
+            Member singleResult = query1.getSingleResult();
+
+
+            //페이징 쿼리
+            String jpql = "select m from Member m order by m.username desc";
+            List<Member> resultList2 = em.createQuery(jpql, Member.class)
+                    .setFirstResult(10)
+                    .setMaxResults(20)
+                    .getResultList();
             tx.commit();
 
 
